@@ -1,0 +1,66 @@
+.h1{
+    padding: 20px;
+            letter-spacing: 1px;
+            text-align: center;
+            font-size: 30px;
+            font-weight: 600;
+            /* color: #fff; */
+}
+.tdH{
+    font-weight: 600;
+    font-size: 15px;
+    /* text-align: center; */
+
+}
+.bottons{
+    margin: 10px;
+    border-radius: 5px;
+    padding: 8px;
+    font-size: 15px;
+    font-weight: 600;
+    outline: none;
+    float: right;
+
+}
+/* .bottons:hover {
+    background-color: #ff4d4d;
+    cursor: pointer;
+  } */
+  .uH{
+    font-weight: 600;
+    font-size: 20px;
+    text-align: center;
+    padding: 10px;
+    letter-spacing: 1px;
+  }
+  .input{
+        width: 90%;
+        /* align-items: center; */
+        padding: 10px;
+        margin-left: 10px;
+        cursor: pointer;
+        border-radius: 10px;
+        /* border: 1px solid #ccc;
+         */
+        outline: none;
+  }
+  .uBotton{
+        margin-right: 25px;
+        margin-bottom: 25px;
+        padding: 10px;
+        font-size: 18px;
+        letter-spacing: 1px;
+        font-weight: 600;
+        float: right;
+  }
+  /* .uBotton :hover{
+    background-color: #ff4d4d;
+    cursor: pointer;
+  } */
+  .car img{
+    width: 100%;
+    aspect-ratio: 3/2;
+    object-fit: contain;
+    /* mix-blend-mode: color-burn; */
+    height: 500px;
+  }
