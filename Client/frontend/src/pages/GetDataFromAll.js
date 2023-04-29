@@ -67,7 +67,7 @@ const GetData = () => {
   const [checkedJSON, setCheckedJSON] = useState(false);
   const [checkedParquet, setCheckedParquet] = useState(false);
   const [checkedCSV, setCheckedCSV] = useState(false);
-  const [type, setType] = useState("");
+  const [type, setType] = useState("noFile");
   const [showTable, setShowTable] = useState(false);
   
    
@@ -77,44 +77,45 @@ const GetData = () => {
     setFormData(value);
   };
 
+const handleClick6 = (event) => {
+  if(checkedJSON){
+    setType("json");
+   }
+   else if(checkedParquet){
+     setType("parquet");
+   }
+  else if(checkedCSV){
+     setType("csv");
+   }
+   else{
+    setType("noFile");
+   }
+      //console.log('Table name:', formData);
+      axios.defaults.baseURL = "http://localhost:3000"
+      axios.get('/execute-spark-job-all',{
+        params: {
+          table: formData,
+          file: type,
+        },} ).then(response => {
+        
+        const parsedData = JSON.parse(response.data.output);
+        console.log(parsedData);
+        if(parsedData.length === 0){
+          alert("No such table exists");
+        }
+        else{
+        setTableData(parsedData);
+        setShowTable(true);
+       
+        }
+        
+      })  .catch(error => {
+        console.log(error);
+      } );
+}
+
   const handleSubmit = (event) => {
     event.preventDefault();
-;
-if(checkedJSON){
-  setType("json");
- }
- else if(checkedParquet){
-   setType("parquet");
- }
-else if(checkedCSV){
-   setType("csv");
- }
- else{
-  setType("noFile");
- }
-    //console.log('Table name:', formData);
-    axios.defaults.baseURL = "http://localhost:3000"
-    axios.get('/execute-spark-job-all',{
-      params: {
-        table: formData,
-        file: type,
-      },} ).then(response => {
-      
-      const parsedData = JSON.parse(response.data.output);
-      console.log(parsedData);
-      if(parsedData.length === 0){
-        alert("No such table exists");
-      }
-      else{
-      setTableData(parsedData);
-      setShowTable(true);
-     
-      }
-      
-    })
-    .catch(error => {
-      console.log(error);
-    } );
       //Reload the page
       
   }
@@ -195,7 +196,9 @@ else if(checkedCSV){
       justifyContent: 'left',
       
          }}>
-        <Form.Check type="checkbox" label="JSON" checked={checkedJSON} onChange={() => setCheckedJSON(!checkedJSON)} />
+        <Form.Check type="checkbox" label="JSON" checked={checkedJSON} onChange={() => {setCheckedJSON(!checkedJSON);
+          setType("json")
+        } } />
         </div>
         <div style={{
             display: "flex",
@@ -205,7 +208,8 @@ else if(checkedCSV){
       justifyContent: 'left',
       
          }}>
-        <Form.Check type="checkbox" label="Parquet" checked={checkedParquet} onChange={() => setCheckedParquet(!checkedParquet)} />
+        <Form.Check type="checkbox" label="Parquet" checked={checkedParquet} onChange={() => {setCheckedParquet(!checkedParquet);
+         setType("parquet")}} />
         </div >
         <div style={{
             display: "flex",
@@ -215,7 +219,8 @@ else if(checkedCSV){
       justifyContent: 'left',
       
          }}>
-        <Form.Check type="checkbox" label="CSV" checked={checkedCSV} onChange={() => setCheckedCSV(!checkedCSV)} />
+        <Form.Check type="checkbox" label="CSV" checked={checkedCSV} onChange={() => {setCheckedCSV(!checkedCSV);
+         setType("csv")}} />
         </div>
         </div>
         <div style={{
@@ -229,7 +234,7 @@ else if(checkedCSV){
             border: "none",
             color: "white"
 
-          }}>
+          }} onClick={handleClick6}>
             Get Data
           </Button>
          <button style={{

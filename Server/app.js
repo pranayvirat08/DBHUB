@@ -48,9 +48,9 @@ app.get('/execute-spark-job', (req, res) => {
   });
 
   // Log errors from child process
-  sparkJob.stderr.on('data', (data) => {
-    console.error(`stderr: ${data}`);
-  });
+  // sparkJob.stderr.on('data', (data) => {
+  //   console.error(`stderr: ${data}`);
+  // });
 
   // Handle child process exit
   sparkJob.on('close', (code) => {
@@ -64,7 +64,7 @@ app.get('/execute-spark-retrieve-job', (req, res) => {
   const {url,username,password} = req.query;
   // Define command and arguments
   const command = 'spark-submit';
-  const args = ['--class', 'com.jdbc.Postgres.retrieveTables', '--driver-class-path','/opt/spark/postgresql-42.3.7.jar', '--master', 'local[*]', '/home/pranay/jars/MongoJars/Postgres/target/scala-2.12/postgres_2.12-0.1.0-SNAPSHOT.jar',url,username,password];
+  const args = ['--class', 'com.jdbc.Postgres.retrieveTables', '--driver-class-path','./jars/postgresql-42.3.7.jar', '--master', 'local[*]', './jars/postgres_2.12-0.1.0-SNAPSHOT.jar',url,username,password];
   let stdoutData = '';
   // Spawn child process to execute command
   const sparkJob = spawn(command, args);
@@ -89,7 +89,7 @@ app.get('/execute-spark-job-mysql', (req, res) => {
   // Define command and arguments
   const command = 'spark-submit';
   const {url, username, password} = req.query;
-  const args = ['--class', 'com.mysql.checkConnection', '--driver-class-path','/home/pranay/Downloads/mysql-connector-j-8.0.32.jar', '--master', 'local[*]', '/home/pranay/SE/sample_projects/jars/mysql-connection_2.12-1.0.jar',url,username,password];
+  const args = ['--class', 'com.mysql.checkConnection', '--driver-class-path','./jars/mysql-connector-j-8.0.32.jar', '--master', 'local[*]', './jars/mysql-connection_2.12-1.0.jar',url,username,password];
   let stdoutData = '';
   // Spawn child process to execute command
   const sparkJob = spawn(command, args);
@@ -125,9 +125,9 @@ app.get('/execute-spark-job-all', (req, res) => {
     }
   }
  const {table,file} = req.query;
-
+console.log(file)
   //const input1 = '{"postgres":{"url":"jdbc:postgresql://localhost:5432/postgres","username": "postgres","password":"password"},"mysql":{"url":"jdbc:mysql://localhost:3307/MySQL","username":"root","password":"root"}}';
-  const args = ['--class', 'com.jdbc.getAll','--packages','org.mongodb.spark:mongo-spark-connector_2.12:10.1.1', '--driver-class-path', '/home/pranay/Downloads/mysql-connector-j-8.0.32.jar:/opt/spark/postgresql-42.3.7.jar', '--master', 'local[*]', '/home/pranay/SE/sample_projects/jars/getall_2.12-0.1.0-SNAPSHOT.jar',table,file];
+  const args = ['--class', 'com.jdbc.getAll','--packages','org.mongodb.spark:mongo-spark-connector_2.12:10.1.1', '--driver-class-path', './jars/mysql-connector-j-8.0.32.jar:./jars/postgresql-42.3.7.jar', '--master', 'local[*]', './jars/getall_2.12-0.1.0-SNAPSHOT.jar',table,file];
 
   // Spawn child process to execute command
   const sparkJob = spawn(command, args);

@@ -60,40 +60,44 @@ export default function Navbar(){
                         }} to="/about">About</Link>
                     </li> */}
                     <li>
-                        <a href="/postgresql" style={{
+                        {/* <a href="/postgresql" style={{
                             textDecoration:"none",
                             color:"black"
-                        }}>PostgreSQL</a>
+                        }}>PostgreSQL</a> */}
+                        <Link to="/postgresql" style={{
+                            textDecoration:"none",
+                            color:"black"
+                        }}>PostgreSQL</Link>
                     </li>
                     <li>
-                        <a href="/mysql" style={{
+                        <Link to="/mysql" style={{
                             textDecoration:"none",
                             color:"black"
-                        }}>MySQL</a>
+                        }}>MySQL</Link>
                     </li>
                     <li>
-                        <a href="/aws" style={{
+                        <Link to="/aws" style={{
                             textDecoration:"none",
                             color:"black"
-                        }}>AWS</a>
+                        }}>AWS</Link>
                     </li>
                     <li>
-                        <a href="/mongodb" style={{
+                        <Link to="/mongodb" style={{
                             textDecoration:"none",
                             color:"black"
-                        }}>MongoDB</a>
+                        }}>MongoDB</Link>
                     </li>
                     <li>
-                        <a href="/manageConnections" style={{
+                        <Link to="/manageConnections" style={{
                             textDecoration:"none",
                             color:"black"
-                        }}>Manage Connections</a>
+                        }}>Manage Connections</Link>
                     </li>
                     <li>
-                        <a href="/getData" style={{
+                        <Link to="/getData" style={{
                             textDecoration:"none",
                             color:"black"
-                        }}>Centralized Data</a>
+                        }}>Centralized Data</Link>
                     </li>
                 </ul>
              </div>
