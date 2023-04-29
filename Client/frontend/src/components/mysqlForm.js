@@ -103,7 +103,7 @@ export default function Details() {
       alert("Please specify values")
     } else {
 
-      axios.defaults.baseURL = "http://localhost:3000"
+      axios.defaults.baseURL = "http://54.236.43.43:3000"
       axios
         .get("/execute-spark-job-mysql", {
           params: {
@@ -146,7 +146,7 @@ export default function Details() {
     if (check_url.trim() === "" || check_username.trim() === "" || check_password.trim() === "") {
       alert("Please specify values")
     } else {
-      axios.defaults.baseURL = "http://localhost:3000"
+      axios.defaults.baseURL = "http://54.236.43.43:3000"
       axios.get("/execute-spark-retrieve-job-mysql", {
         params: {
           url: formData.url,
@@ -173,7 +173,7 @@ export default function Details() {
     if (check_url.trim() === "" || check_username.trim() === "" || check_password.trim() === "" || check_tablename.trim() === "") {
       alert("Please specify values")
     } else {
-      axios.defaults.baseURL = "http://localhost:3000"
+      axios.defaults.baseURL = "http://54.236.43.43:3000"
       axios.get("/api/db/mysqlData", {
         params: {
           url: formData.url,
@@ -199,7 +199,7 @@ export default function Details() {
   const handleClick1 = async (event) => {
     try {
       event.preventDefault();
-      const response = await axios.get('http://localhost:3000/api/db/downloadMySQL',{
+      const response = await axios.get('http://54.236.43.43:3000/api/db/downloadMySQL',{
        params:{
          fileType: type,
        },
@@ -262,7 +262,7 @@ export default function Details() {
 
               <h4>Parameters</h4>
               <ul>
-                <li><b>URL:</b><p>JDBC URL: The JDBC URL for MySQL usually looks like this: <b>jdbc:mysql://localhost:3306/dbname </b>, where localhost is the name of the server where MySQL is running, 3306 is the port number, and dbname is the name of the database you want to connect to. You will need to replace localhost and dbname with the appropriate values for your MySQL setup.</p></li>
+                <li><b>URL:</b><p>JDBC URL: The JDBC URL for MySQL usually looks like this: <b>jdbc:mysql://54.236.43.43:3306/dbname </b>, where 54.236.43.43 is the name of the server where MySQL is running, 3306 is the port number, and dbname is the name of the database you want to connect to. You will need to replace 54.236.43.43 and dbname with the appropriate values for your MySQL setup.</p></li>
                 <li><b>Username: </b><p>The username you use to connect to MySQL will depend on your specific MySQL setup. By default, the username is root, but it may be different if you are connecting to a MySQL server that is managed by a third party (e.g., a web host).</p></li>
                 <li><b>Password: </b><p>You will need to provide the password associated with the MySQL user you are connecting as.</p></li>
               </ul>

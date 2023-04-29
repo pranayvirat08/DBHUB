@@ -16,7 +16,7 @@ const MySQLConnections = () =>{
 
     const getConnections = async() =>{
         try{
-            const result = await axios.get("http://localhost:3000/api/db/mysql/getDetails");
+            const result = await axios.get("http://54.236.43.43:3000/api/db/mysql/getDetails");
             setConnectionList(result.data);
             console.log(setConnectionList);
         }
@@ -55,7 +55,7 @@ const MySQLConnections = () =>{
     const updateConnections = async (e) =>{
         e.preventDefault();
         try{
-            const res = await axios.put(`http://localhost:3000/api/db/mysql/getDetails/${isUpdated}`,{url: updatedUrl, username: updatedUsername, password: updatePassword} )
+            const res = await axios.put(`http://54.236.43.43:3000/api/db/mysql/getDetails/${isUpdated}`,{url: updatedUrl, username: updatedUsername, password: updatePassword} )
             const updatedConnectionIndex = connectionList.findIndex(connection => connection._id === isUpdated);
             const updatedConnectionUrl = connectionList[updatedConnectionIndex].url = updatedUrl;
             const updatedConnectionUsername = connectionList[updatedConnectionIndex].username = updatedUsername;
@@ -77,7 +77,7 @@ const MySQLConnections = () =>{
 
     const deleteConnections = async(id) =>{
         try{
-        const res = await axios.delete(`http://localhost:3000/api/db/mysql/getDetails/${id}`);
+        const res = await axios.delete(`http://54.236.43.43:3000/api/db/mysql/getDetails/${id}`);
         const newConnectionList = connectionList.filter(connection => connection._id !==id);
         setConnectionList(newConnectionList);
         }catch(err){
