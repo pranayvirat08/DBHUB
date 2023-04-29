@@ -34,7 +34,7 @@ app.get('/execute-spark-job', (req, res) => {
   // Define command and arguments
   const command = 'spark-submit';
   const {url, username, password} = req.query;
-  const args = ['--class', 'com.postgres.testPostgresConnection', '--driver-class-path','/opt/spark/postgresql-42.3.7.jar', '--master', 'local[*]', '/home/pranay/SE/sample_projects/jars/postgresexample_2.12-1.0.jar',url,username,password];
+  const args = ['--class', 'com.postgres.testPostgresConnection', '--driver-class-path','./jars/postgresql-42.3.7.jar', '--master', 'local[*]', './jars/postgresexample_2.12-1.0.jar',url,username,password];
   let stdoutData = '';
   // Spawn child process to execute command
   const sparkJob = spawn(command, args);
