@@ -80,7 +80,7 @@ const AWS = () => {
   const [checkedJSON, setCheckedJSON] = useState(false);
   const [checkedParquet, setCheckedParquet] = useState(false);
   const [checkedCSV, setCheckedCSV] = useState(false);
-  const [type, setType] = useState("");
+  const [type, setType] = useState("noFile");
   const [showTable, setTable] = useState(false);
   const handleChange = (event) => {
     const { name, value } = event.target; 
@@ -110,7 +110,8 @@ else if(checkedCSV){
   setType("noFile");
  }
 
- axios.defaults.baseURL = "http://54.236.43.43:3000/api/aws"
+ axios.defaults.baseURL =  "http://54.236.43.43:3000/api/aws" //"http://localhost:3000/api/aws"
+
  axios.get('/awsRetrieval',{
    params: {
       accessKey: formData.accessKey,
@@ -306,7 +307,9 @@ const handleSubmit = (event) => {
       justifyContent: 'left',
       
          }}>
-        <Form.Check type="checkbox" label="JSON" checked={checkedJSON} onChange={() => setCheckedJSON(!checkedJSON)} />
+        <Form.Check type="checkbox" label="JSON" checked={checkedJSON} onChange={() => {setCheckedJSON(!checkedJSON);
+        setType("json")
+        }} />
         </div>
         <div style={{
             display: "flex",
@@ -316,7 +319,9 @@ const handleSubmit = (event) => {
       justifyContent: 'left',
       
          }}>
-        <Form.Check type="checkbox" label="Parquet" checked={checkedParquet} onChange={() => setCheckedParquet(!checkedParquet)} />
+        <Form.Check type="checkbox" label="Parquet" checked={checkedParquet} onChange={() => {setCheckedParquet(!checkedParquet);
+        setType("parquet")
+        }} />
         </div >
         <div style={{
             display: "flex",
@@ -326,7 +331,9 @@ const handleSubmit = (event) => {
       justifyContent: 'left',
       
          }}>
-        <Form.Check type="checkbox" label="CSV" checked={checkedCSV} onChange={() => setCheckedCSV(!checkedCSV)} />
+        <Form.Check type="checkbox" label="CSV" checked={checkedCSV} onChange={() => {setCheckedCSV(!checkedCSV);
+        setType("csv")
+        } }/>
         </div>
         </div>
         <div style={{

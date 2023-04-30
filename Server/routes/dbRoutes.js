@@ -114,8 +114,8 @@ const fs = require('fs');
 router.get('/download', (req, res) => {
     const {fileType} = req.query
     const type = fileType;
-    const folderPath = `/home/pranay/SE/sample_projects/DBHUB/DBHUB_Final/Server/downloadedFiles/data.${type}`; // path of the folder to be zipped
-    const zipFilePath =   `/home/pranay/SE/sample_projects/DBHUB/DBHUB_Final/Server/downloadedFiles/data.zip` // path where the zip file will be stored
+    const folderPath = `/home/pranay/SE/sample_projects/stable copies/DBHUB_latest/Server/downloadedFiles/data.${type}`; // path of the folder to be zipped
+    const zipFilePath =   `/home/pranay/SE/sample_projects/stable copies/DBHUB_latest/Server/downloadedFiles/data.zip` // path where the zip file will be stored
   
     // create a new zip object
     const zip = new AdmZip();
@@ -243,8 +243,8 @@ router.get('/mysqlData', (req, res) => {
 router.get('/downloadPostgres', (req, res) => {
     const {fileType} = req.query
     const type = fileType;
-    const folderPath = `/home/pranay/SE/sample_projects/DBHUB/DBHUB_Final/Server/downloadedFiles/postgres/data.${type}`; // path of the folder to be zipped
-    const zipFilePath =   `/home/pranay/SE/sample_projects/DBHUB/DBHUB_Final/Server/downloadedFiles/postgres/data.zip` // path where the zip file will be stored
+    const folderPath = `/home/pranay/SE/sample_projects/stable copies/DBHUB_latest/Server/downloadedFiles/postgres/data.${type}`; // path of the folder to be zipped
+    const zipFilePath =   `/home/pranay/SE/sample_projects/stable copies/DBHUB_latest/Server/downloadedFiles/postgres/data.zip` // path where the zip file will be stored
   
     // create a new zip object
     const zip = new AdmZip();
@@ -275,8 +275,8 @@ router.get('/downloadPostgres', (req, res) => {
   router.get('/downloadMySQL', (req, res) => {
     const {fileType} = req.query
     const type = fileType;
-    const folderPath = `/home/pranay/SE/sample_projects/DBHUB/DBHUB_Final/Server/downloadedFiles/mysql/data.${type}`; // path of the folder to be zipped
-    const zipFilePath =   `/home/pranay/SE/sample_projects/DBHUB/DBHUB_Final/Server/downloadedFiles/mysql/data.zip` // path where the zip file will be stored
+    const folderPath = `/home/pranay/SE/sample_projects/stable copies/DBHUB_latest/Server/downloadedFiles/mysql/data.${type}`; // path of the folder to be zipped
+    const zipFilePath =   `/home/pranay/SE/sample_projects/stable copies/DBHUB_latest/Server/downloadedFiles/mysql/data.zip` // path where the zip file will be stored
   
     // create a new zip object
     const zip = new AdmZip();
@@ -305,12 +305,12 @@ router.get('/downloadPostgres', (req, res) => {
   });
 
 
-
+//-------------------------------------------------------------------Route to Download MongoDB Data ---------------------------------------------
   router.get('/downloadMongo', (req, res) => {
     const {fileType} = req.query
     const type = fileType;
-    const folderPath = `/home/pranay/SE/sample_projects/DBHUB/DBHUB_Final/Server/downloadedFiles/mongo/data.${type}`; // path of the folder to be zipped
-    const zipFilePath =   `/home/pranay/SE/sample_projects/DBHUB/DBHUB_Final/Server/downloadedFiles/mongo/data.zip` // path where the zip file will be stored
+    const folderPath = `/home/pranay/SE/sample_projects/stable copies/DBHUB_latest/Server/downloadedFiles/mongo/data.${type}`; // path of the folder to be zipped
+    const zipFilePath =   `/home/pranay/SE/sample_projects/stable copies/DBHUB_latest/Server/downloadedFiles/mongo/data.zip` // path where the zip file will be stored
   
     // create a new zip object
     const zip = new AdmZip();

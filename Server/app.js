@@ -233,9 +233,15 @@ app.use("/api/auth", authsRouter);
 
 
 app.use("/api/db", dbRouter);
-// catch 404 and forward to error handler
-app.use(function (req, res, next) {
-  next(createError(404));
+
+
+
+app.get("/*", function (req, res) {
+  res.sendFile(path.join(__dirname, "public/index.html"), function (err) {
+    if (err) {
+      res.status(500).send(err);
+    }
+  });
 });
 // error handler
 app.use(function (err, req, res, next) {

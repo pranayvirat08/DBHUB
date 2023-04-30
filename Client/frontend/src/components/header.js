@@ -6,6 +6,7 @@ import PostgresSQL from '.././logos/Postgresql.png'
 import AWS from '.././logos/AWS-logo-2.jpg'
 import mongodb from '.././logos/mongodb.png'
 import './ManageConnections/style.css'
+import {Link} from "react-router-dom"
 const Header = () => {
   return (
     <div style={{
@@ -18,46 +19,46 @@ const Header = () => {
         width: '100%',
       }} className='car'>
         <Carousel.Item interval={1500}>
-          <a  href='/mysql'>
+          <Link  to='/mysql'>
             <img
              
               src={MySQL}
               alt="Image One"
             />
-          </a>
+          </Link>
 
          
         </Carousel.Item>
         <Carousel.Item interval={1500}>
-        <a  href='/postgresql'>
+        <Link  to='/postgresql'>
           <img
             className="d-block w-100"
             src={PostgresSQL}
             alt="Image One"
           />
-          </a>
+          </Link>
         
         </Carousel.Item>
         <Carousel.Item interval={1500}>
-        <a  href='/aws'>
+        <Link  to='/aws'>
           <img
             className="d-block w-100"
             src={AWS}
             alt="Image One"
           />
-          </a>
+          </Link>
           <Carousel.Caption>
             <h3 styles={{ bg: "red" }}>AWS</h3>
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item interval={1500}>
-        <a  href='/mongodb'>
+        <Link  to='/mongodb'>
           <img
             className="d-block w-100"
             src={mongodb}
             alt="Image One"
           />
-          </a>
+          </Link>
          
         </Carousel.Item>
       </Carousel>
