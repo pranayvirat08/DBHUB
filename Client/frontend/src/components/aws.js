@@ -110,7 +110,7 @@ else if(checkedCSV){
   setType("noFile");
  }
 
- axios.defaults.baseURL =  "http://34.228.30.99:3000/api/aws" //"http://localhost:3000/api/aws"
+ axios.defaults.baseURL =  "http://52.87.250.227:3000/api/aws" //"http://localhost:3000/api/aws"
 
  axios.get('/awsRetrieval',{
    params: {
@@ -145,7 +145,7 @@ else if(checkedCSV){
 const handleClick = async (event) => {
   try {
     event.preventDefault();
-    const response = await axios.get('http://34.228.30.99:3000/api/aws/aws/download',{
+    const response = await axios.get('http://52.87.250.227:3000/api/aws/aws/download',{
      params:{
        fileType: type,
      },

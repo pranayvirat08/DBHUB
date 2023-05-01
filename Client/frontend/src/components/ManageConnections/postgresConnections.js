@@ -15,7 +15,7 @@ const PostgresConnection = () =>{
 //Function to fetch connections
     const getConnections = async() =>{
         try{
-            const result = await axios.get("http://34.228.30.99:3000/api/db/postgres/getDetails");
+            const result = await axios.get("http://52.87.250.227:3000/api/db/postgres/getDetails");
             setConnectionList(result.data);
             console.log(setConnectionList);
         }
@@ -61,7 +61,7 @@ const PostgresConnection = () =>{
     const updateConnections = async (e) =>{
         e.preventDefault();
         try{
-            const res = await axios.put(`http://34.228.30.99:3000/api/db/postgres/getDetails/${isUpdated}`,{url: updatedUrl, username: updatedUsername, password: updatePassword} )
+            const res = await axios.put(`http://52.87.250.227:3000/api/db/postgres/getDetails/${isUpdated}`,{url: updatedUrl, username: updatedUsername, password: updatePassword} )
             const updatedConnectionIndex = connectionList.findIndex(connection => connection._id === isUpdated);
             const updatedConnectionUrl = connectionList[updatedConnectionIndex].url = updatedUrl;
             const updatedConnectionUsername = connectionList[updatedConnectionIndex].username = updatedUsername;
@@ -83,7 +83,7 @@ const PostgresConnection = () =>{
 
     const deleteConnections = async(id) =>{
         try{
-        const res = await axios.delete(`http://34.228.30.99:3000/api/db/postgres/getDetails/${id}`);
+        const res = await axios.delete(`http://52.87.250.227:3000/api/db/postgres/getDetails/${id}`);
         const newConnectionList = connectionList.filter(connection => connection._id !==id);
         setConnectionList(newConnectionList);
         }catch(err){
