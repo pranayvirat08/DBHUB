@@ -99,7 +99,7 @@ export default function Details() {
     if (check_url.trim() === "" || check_username.trim() === "" || check_password.trim() === "") {
       alert("Please specify values")
     } else {
-    axios.defaults.baseURL = "http://http://34.228.30.99/:3000"
+    axios.defaults.baseURL = "http://34.228.30.99:3000"
     axios
       .get("/execute-spark-job", {
         params: {
@@ -140,7 +140,7 @@ export default function Details() {
 
   const handleTables = (event) => {
     event.preventDefault();
-    axios.defaults.baseURL = "http://http://34.228.30.99/:3000"
+    axios.defaults.baseURL = "http://34.228.30.99:3000"
     axios.get("/execute-spark-retrieve-job", {
       params: {
         url: formData.url,
@@ -164,7 +164,7 @@ export default function Details() {
     if (check_url.trim() === "" || check_username.trim() === "" || check_password.trim() === "" || check_tablename.trim() === "") {
       alert("Please specify values")
     } else {
-      axios.defaults.baseURL = "http://http://34.228.30.99/:3000"
+      axios.defaults.baseURL = "http://34.228.30.99:3000"
       axios.get("/api/db/postgresData", {
         params: {
           url: formData.url,
@@ -190,7 +190,7 @@ export default function Details() {
   const handleClick1 = async (event) => {
     try {
       event.preventDefault();
-      const response = await axios.get('http://http://34.228.30.99/:3000/api/db/downloadPostgres',{
+      const response = await axios.get('http://34.228.30.99:3000/api/db/downloadPostgres',{
        params:{
          fileType: type,
        },
