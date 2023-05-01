@@ -91,7 +91,7 @@ const handleClick6 = (event) => {
     setType("noFile");
    }
       //console.log('Table name:', formData);
-      axios.defaults.baseURL = "http://54.236.43.43:3000"
+      axios.defaults.baseURL = "http://http://34.228.30.99/:3000"
       axios.get('/execute-spark-job-all',{
         params: {
           table: formData,
@@ -124,7 +124,7 @@ const handleClick6 = (event) => {
  const handleClick = async (event) => {
    try {
      event.preventDefault();
-     const response = await axios.get('http://54.236.43.43:3000/api/db/download',{
+     const response = await axios.get('http://http://34.228.30.99/:3000/api/db/download',{
       params:{
         fileType: type,
       },

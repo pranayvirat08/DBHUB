@@ -99,7 +99,7 @@ export default function Details() {
     if (check_url.trim() === "" || check_username.trim() === "" || check_password.trim() === "") {
       alert("Please specify values")
     } else {
-    axios.defaults.baseURL = "http://54.236.43.43:3000"
+    axios.defaults.baseURL = "http://http://34.228.30.99/:3000"
     axios
       .get("/execute-spark-job", {
         params: {
@@ -140,7 +140,7 @@ export default function Details() {
 
   const handleTables = (event) => {
     event.preventDefault();
-    axios.defaults.baseURL = "http://54.236.43.43:3000"
+    axios.defaults.baseURL = "http://http://34.228.30.99/:3000"
     axios.get("/execute-spark-retrieve-job", {
       params: {
         url: formData.url,
@@ -164,7 +164,7 @@ export default function Details() {
     if (check_url.trim() === "" || check_username.trim() === "" || check_password.trim() === "" || check_tablename.trim() === "") {
       alert("Please specify values")
     } else {
-      axios.defaults.baseURL = "http://54.236.43.43:3000"
+      axios.defaults.baseURL = "http://http://34.228.30.99/:3000"
       axios.get("/api/db/postgresData", {
         params: {
           url: formData.url,
@@ -190,7 +190,7 @@ export default function Details() {
   const handleClick1 = async (event) => {
     try {
       event.preventDefault();
-      const response = await axios.get('http://54.236.43.43:3000/api/db/downloadPostgres',{
+      const response = await axios.get('http://http://34.228.30.99/:3000/api/db/downloadPostgres',{
        params:{
          fileType: type,
        },
@@ -259,7 +259,7 @@ export default function Details() {
               <br />
               <h4>Parameters</h4>
               <ul>
-                <li><b>URL: </b> <p>The JDBC URL for PostgreSQL is a string that specifies the address of the database server, along with any necessary parameters for connecting to the database. Here is an example JDBC URL for connecting to a PostgreSQL database:<b>jdbc:postgresql://54.236.43.43:5432/mydatabase</b></p><p>In this example, 54.236.43.43 is the hostname or IP address of the server where the PostgreSQL database is running, 5432 is the port number on which the database is listening for connections, and mydatabase is the name of the database you want to connect to. You may need to replace 54.236.43.43 with the actual hostname or IP address of your server, and mydatabase with the name of your own database. 
+                <li><b>URL: </b> <p>The JDBC URL for PostgreSQL is a string that specifies the address of the database server, along with any necessary parameters for connecting to the database. Here is an example JDBC URL for connecting to a PostgreSQL database:<b>jdbc:postgresql://http://34.228.30.99/:5432/mydatabase</b></p><p>In this example, http://34.228.30.99/ is the hostname or IP address of the server where the PostgreSQL database is running, 5432 is the port number on which the database is listening for connections, and mydatabase is the name of the database you want to connect to. You may need to replace http://34.228.30.99/ with the actual hostname or IP address of your server, and mydatabase with the name of your own database. 
                 </p></li>
                 <li><b>Username: </b><p> When connecting to a PostgreSQL database, you need to provide a valid username</p></li>
                 <li><b>Password: </b><p> When connecting to a PostgreSQL database, you need to provide a valid password</p></li>
